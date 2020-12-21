@@ -1,0 +1,57 @@
+<div class="container">
+    <div class="box">
+        <mat-card class="mat-elevation-z0" >
+            <form>
+                <mat-card-title class="crie_conta">Nova Consulta</mat-card-title>
+
+                  <mat-form-field color="warn" appearance="outline">
+                        <mat-label>Especialidade</mat-label>
+                        <mat-select (selectionChange)="getMedicos($event.value)">
+                            <mat-option *ngFor="let especialidade of especialidades" [value]="especialidade.id">
+                            {{especialidade.nome}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+
+                    <mat-form-field color="warn" appearance="outline">
+                        <mat-label>Medico</mat-label>
+                        <mat-select [disabled]="!medicosEnabled" (selectionChange)="getAgenda($event.value)">
+                            <mat-option *ngFor="let medico of medicos" [value]="medico.id">
+                            {{medico.nome}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+
+                    <mat-form-field color="warn" appearance="outline">
+                        <mat-label>Data</mat-label>
+                    <mat-select [disabled]="!dataEnabled" (selectionChange)="getHorarios($event.value)" [(ngModel)]="consultaPost.agenda_id" name="agenda_id">
+                            <mat-option *ngFor="let agenda of agendas" [value]="agenda.id">
+                            {{agenda.dia}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+
+                    <mat-form-field color="warn" appearance="outline">
+                        <mat-label>Hora</mat-label>
+                        <mat-select  [disabled]="!horaEnabled" (selectionChange)="enableConfirmar()"
+                                     [(ngModel)]="consultaPost.horario" name="horario">
+                            <mat-option *ngFor="let horario of horarios" [value]="horario">
+                            {{horario}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+
+            </form>
+            <div class="bottom-buttons">
+                <button mat-button (click)="cancelar()" color="btn-secondary">
+                    Cancelar
+                </button>
+                <button mat-button [disabled]="!confirmarEnabled" [class.mat-raised-button]="!confirmarEnabled"
+                        (click)="btnConfirmar()" color="btn-primary">
+                    Confirmar
+                </button>
+            </div>
+        </mat-card>        
+    </div>
+</div>
+

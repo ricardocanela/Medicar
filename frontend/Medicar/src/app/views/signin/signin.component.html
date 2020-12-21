@@ -1,0 +1,57 @@
+<div class="container">
+    <div class="box">
+        <mat-card class="mat-elevation-z0" >
+            <div class="logo">
+                <img class="logo" src="assets/img/logo.svg">
+                <mat-card-title class="medicar">Medicar</mat-card-title>
+            </div>
+            <form>
+                <mat-card-title class="crie_conta">Crie sua conta</mat-card-title>
+                <mat-form-field color="warn" appearance="outline">
+                    <mat-label>Nome</mat-label>
+                    <input matInput placeholder="Nome"
+                    [(ngModel)]="userSignin.username" name="username">
+                  </mat-form-field>
+        
+                  <mat-form-field color="warn" appearance="outline">
+                    <mat-label>Email</mat-label>
+                    <input matInput placeholder="Email"
+                    [(ngModel)]="userSignin.email" name="email">
+                    
+                  </mat-form-field>
+
+
+                  <mat-form-field appearance="outline">
+                    <mat-label>Senha</mat-label>
+
+                    <input matInput [type]="hidePassword ? 'password' : 'text'" placeholder="Senha"
+                    [(ngModel)]="userSignin.password" name="password">
+                    <button mat-button matSuffix (click)="hidePassword = !hidePassword"  
+                    [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hidePassword">
+                    <mat-icon class="eye_btn">  {{hidePassword ? 'visibility_off' : 'visibility'}}</mat-icon>
+                    </button>
+
+                  </mat-form-field>
+
+                  <mat-form-field appearance="outline">
+                    <mat-label>Confirmar Senha</mat-label>
+
+                    <input matInput [type]="hideConfirmPassword ? 'password' : 'text'" placeholder="Senha">
+                    <button mat-button matSuffix (click)="hideConfirmPassword = !hideConfirmPassword"  [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hideConfirmPassword">
+                    <mat-icon class="eye_btn">  {{hideConfirmPassword ? 'visibility_off' : 'visibility'}}</mat-icon>
+                    </button>
+
+                  </mat-form-field>
+            </form>
+            <div class="bottom-buttons">
+                <button mat-button (click)="cancelar()" color="btn-secondary">
+                    Cancelar
+                </button>
+                <button mat-button (click)="createUser()" color="btn-primary">
+                    Confirmar
+                </button>
+            </div>
+        </mat-card>        
+    </div>
+</div>
+

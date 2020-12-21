@@ -1,0 +1,41 @@
+<div class="container">
+    <div class="box">
+        <mat-card class="mat-elevation-z0" >
+            <div class="logo">
+                <img class="logo" src="assets/img/logo.svg">
+                <mat-card-title class="medicar">Medicar</mat-card-title>
+            </div>
+            <form>
+                <mat-form-field color="warn" appearance="outline">
+                    <mat-label>Email ou Login</mat-label>
+                    <input matInput placeholder="Email ou Login"
+                        [(ngModel)]="userLogin.username" name="username">
+                  </mat-form-field>
+        
+                  <mat-form-field appearance="outline">
+                    <mat-label>Senha</mat-label>
+                    <input matInput [type]="hide ? 'password' : 'text'" placeholder="Senha"
+                        [(ngModel)]="userLogin.password" name="password">
+
+                    <button mat-button matSuffix (click)="hide = !hide"  [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                    <mat-icon class="eye_btn">  {{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                    </button>
+
+                  </mat-form-field>
+                  <div class="lembrar-senha">
+                    <mat-checkbox color="primary">Lembrar minha senha</mat-checkbox>
+                  </div>
+
+            </form>
+            <div class="bottom-buttons">
+                <button mat-button (click)="criarConta()" color="btn-secondary">
+                    Criar Conta
+                </button>
+                <button mat-button (click)="login()" color="btn-primary">
+                    Acessar
+                </button>
+            </div>
+        </mat-card>        
+    </div>
+</div>
+
