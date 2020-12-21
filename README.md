@@ -54,4 +54,4 @@ npm start
 
 3 - Acesse http://localhost:4200/login para utilizar o sistema pela visão do paciente
 
-ou http://localhost:4200/admin para a visão do administrador. 
+ou http://127.0.0.1:8000/admin para a visão do administrador.
