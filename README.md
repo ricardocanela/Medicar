@@ -36,6 +36,10 @@ pip install -r requirements.txt
 python manage.py runserver
 `
 
+6 - Para criar um superusuário:
+`
+python manage.py createsuperuser
+`
 
 ### Frontend
 
@@ -50,5 +54,3 @@ npm start
 3 - Acesse http://localhost:4200/login para utilizar o sistema pela visão do paciente
 
 ou http://localhost:4200/admin para a visão do administrador. 
-
-Usuário/senha para admin: ricardo/123456
